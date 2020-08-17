@@ -1,0 +1,6 @@
+file(GLOB_RECURSE SOURCES "*.cpp" "*.h")
+add_library(liblea SHARED ${SOURCES})
+if (WIN32)
+    set_target_properties(liblea PROPERTIES OUTPUT_NAME liblea)
+    target_compile_definitions(liblea PRIVATE LEA_DLL=1)
+endif()
